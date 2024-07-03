@@ -1,13 +1,11 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from './screens/HomeScreen';
 import CartScreen from './screens/CartScreen';
 
-const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const App = () => {
@@ -26,9 +24,10 @@ const App = () => {
           },
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
+          headerShown: false, // Hide the header
         })}
       >
-        <Tab.Screen name="Home" component={HomeScreen} options={{ title: 'Available Products' }} />
+        <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Cart" component={CartScreen} />
       </Tab.Navigator>
     </NavigationContainer>

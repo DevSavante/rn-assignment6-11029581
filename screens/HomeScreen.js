@@ -4,13 +4,18 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
 
 const products = [
-  { id: '1', name: 'Product 1', price: '$10', image: require('../assets/Prod1.png') },
-  { id: '2', name: 'Product 2', price: '$15', image: require('../assets/Prod2.png') },
-  { id: '3', name: 'Product 3', price: '$20', image: require('../assets/Prod3.png') },
-  { id: '4', name: 'Product 4', price: '$25', image: require('../assets/Prod4.png') },
+  { id: '1', name: 'Office wear reversible angora cardigan', price: '$120', image: require('../assets/Prod1.png') },
+  { id: '2', name: 'reversible angora cardigan black', price: '$120', image: require('../assets/Prod2.png') },
+  { id: '3', name: 'Church Wear Lamerei reversible angora cardigan', price: '$120', image: require('../assets/Prod3.png') },
+  { id: '4', name: 'Reversible angora cardigan', price: '$120', image: require('../assets/Prod4.png') },
+  { id: '5', name: '21WN Reversible angora cardigan', price: '$120', image: require('../assets/Prod5.png') },
+  { id: '6', name: 'Lopo Reversible angora cardigan', price: '$120', image: require('../assets/Prod6.png') },
+  { id: '7', name: '21WN Reversible angora cardigan', price: '$120', image: require('../assets/Prod7.png') },
+  { id: '8', name: 'Lame', price: '$120', image: require('../assets/Prod8.png') },
+  
 ];
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -29,12 +34,13 @@ const HomeScreen = () => {
       const updatedCart = [...cart, product];
       setCart(updatedCart);
       await AsyncStorage.setItem('cart', JSON.stringify(updatedCart));
+      navigation.navigate('Cart', { cart: updatedCart }); // Navigate to Cart with updated cart
     }
   };
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Available Products</Text>
+       <Text style={styles.title}>O U R S t o r e</Text>
       <View style={styles.grid}>
         {products.map((item) => (
           <View key={item.id} style={styles.product}>
@@ -42,7 +48,7 @@ const HomeScreen = () => {
             <Text style={styles.name}>{item.name}</Text>
             <Text style={styles.price}>{item.price}</Text>
             <TouchableOpacity style={styles.addButton} onPress={() => addToCart(item)}>
-              <Ionicons name="add-circle" size={30} color="green" />
+              <Ionicons name="add-circle" size={30} color="black" />
             </TouchableOpacity>
           </View>
         ))}
@@ -55,6 +61,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    paddingTop: 70,
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 24,
@@ -67,15 +75,16 @@ const styles = StyleSheet.create({
   },
   product: {
     width: '48%',
-    marginBottom: 20,
+    height: 200, 
+    marginBottom: 100,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: 'white',
     padding: 10,
     position: 'relative',
   },
   image: {
     width: '100%',
-    height: 100,
+    height: 200,
     resizeMode: 'cover',
   },
   name: {
@@ -88,7 +97,7 @@ const styles = StyleSheet.create({
   },
   addButton: {
     position: 'absolute',
-    bottom: 10,
+    bottom: -10,
     right: 10,
   },
 });
