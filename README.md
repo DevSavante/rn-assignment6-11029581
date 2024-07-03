@@ -18,3 +18,17 @@ Loading Cart Data: On the cart screen, the stored cart data is loaded from Async
 
 By using AsyncStorage, the app ensures that the user's cart data is saved and retrieved efficiently, providing a seamless shopping experience. The design choices for layout and navigation help create a user-friendly interface for viewing products and managing the cart.
 
+![WhatsApp Image 2024-07-03 at 07 46 44_7687a60a](https://github.com/DevSavante/rn-assignment6-11029581/assets/151789625/337c3eb1-0b39-4efd-ad3e-9f5813b3e652)
+
+Product added to cart and price calculated
+
+![WhatsApp Image 2024-07-03 at 07 46 48_44f53e99](https://github.com/DevSavante/rn-assignment6-11029581/assets/151789625/7ff01c1b-d128-42a2-b590-b297c5c6aea8)
+
+Second product added and total price calculated
+
+
+![WhatsApp Image 2024-07-03 at 07 47 00_59b0be85](https://github.com/DevSavante/rn-assignment6-11029581/assets/151789625/13cabcc4-7078-47dd-aa15-4873f66886ae)
+
+Products in stock with bottom tab navigators for navigation.
+
+
